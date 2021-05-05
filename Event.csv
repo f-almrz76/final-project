@@ -1,2 +1,3 @@
-Name,Date,Place,Total Capacity,Remaining Capacity,Price
-cinema,0.007142857142857143,azadi,100,20,20000
+id,Name,Date,Place,Total Capacity,Remaining Capacity,Price
+1,Thor,21/2,cinema,20,0,10000
+2,IronMan,10/7,cinema,30,28,2000
