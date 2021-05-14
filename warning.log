@@ -1,0 +1,11 @@
+2021-05-14 10:12:48 - WARNING - fateme not enough money.
+2021-05-14 10:16:36 - WARNING - fateme not enough money.
+2021-05-14 10:17:39 - WARNING - Event with ID : 1 not enough capacity
+2021-05-14 10:46:12 - ERROR - fateme enters 3 times wrong password
+2021-05-14 10:54:38 - ERROR - <class 'FileNotFoundError'>
+Traceback (most recent call last):
+  File "C:/Users/NP/PycharmProjects/Maktab_Sharif/Project/main.py", line 99, in <module>
+    user.User.charge_wallet(user_1, money)
+  File "C:\Users\NP\PycharmProjects\Maktab_Sharif\Project\user.py", line 100, in charge_wallet
+    with open('user1.csv', 'r+') as users:
+FileNotFoundError: [Errno 2] No such file or directory: 'user1.csv'
