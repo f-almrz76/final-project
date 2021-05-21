@@ -5,25 +5,6 @@ from colorama import Fore
 from pathlib import Path
 
 
-class Admin:
-    def __init__(self, admin_name, password):
-        self.user_name = admin_name
-        self.password = password
-
-    def add_file(self, path):
-        """
-        This function adda created user to file.
-        :param path:address of file
-        """
-        with open(path, "a", newline='') as user_add:
-            title = ["user name", "password"]
-            csv_file = csv.DictWriter(user_add, fieldnames=title)
-            if Path('admin.csv').stat().st_size == 0:
-                csv_file.writeheader()
-            csv_file.writerow({"user name": self.user_name, "password": self.password})
-
-
-
 def get_info():
     """
     this function gets information of event from admin.
@@ -101,3 +82,21 @@ def show_capacity(ID):
                 if row['id'] == ID:
                     print(Fore.BLUE + row['id'] + ')' + row['Name'] + ':' + row['Remaining Capacity'])
                     break
+
+
+class Admin:
+    def __init__(self, admin_name, password):
+        self.user_name = admin_name
+        self.password = password
+
+    def add_file(self, path):
+        """
+        This function adda created user to file.
+        :param path:address of file
+        """
+        with open(path, "a", newline='') as user_add:
+            title = ["user name", "password"]
+            csv_file = csv.DictWriter(user_add, fieldnames=title)
+            if Path('admin.csv').stat().st_size == 0:
+                csv_file.writeheader()
+            csv_file.writerow({"user name": self.user_name, "password": self.password})

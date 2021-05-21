@@ -6,14 +6,14 @@ import json
 import event
 import log
 from colorama import Fore
-from admin import Admin
 hash_pas = basehash.base36()
 
 
-class User(Admin):
+class User:
 
     def __init__(self, user_name, password):
-        Admin.__init__(self,user_name,password)
+        self.user_name=user_name
+        self.password=password
         self.money = 0
 
     def buy(self, id, num, code):
@@ -140,4 +140,4 @@ class User(Admin):
             for row in user_read:
                 if row['user name'] == self.user_name:
                     password = hash_pas.unhash(row['password'])
-                    print(Fore.BLUE + row['user name'] , password , row['money'])
+                    print(Fore.BLUE + row['user name'], password, row['money'])

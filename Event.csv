@@ -1,3 +1,4 @@
 id,Name,Date,Place,Total Capacity,Remaining Capacity,Price
 1,Thor,21/2,cinema,10,1,1000
-2,Spider_man,5/2,cinema,20,17,3000
+2,Spider_man,5/2,cinema,20,15,3000
+3,Avengers,31/1,cinema,20,20,2000

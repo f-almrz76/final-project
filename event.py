@@ -1,18 +1,49 @@
 import csv
 import pandas as pd
 from pathlib import Path
-from colorama import Fore
-import log
+import tabulate
 
 
 def show_event():
     """
     read events from file and show them.
     """
+    table = []
     with open('Event.csv', 'r') as events:
         read_event = csv.reader(events)
         for event in read_event:
-            print(event)
+            table.append(event)
+    print(tabulate.tabulate(table, tablefmt="fancy_grid"))
+
+
+def find_event(id):
+    """
+    this function find event from file of events.
+    :param id: id of event that want to find
+    :return: object of event and remaining capacity.
+    """
+    with open("Event.csv", 'r') as events:
+        event_read = csv.DictReader(events)
+        for row in event_read:
+            if row['id'] == id:
+                evnt = Event(id, row['Name'], row['Date'], row['Place'], row['Total Capacity'], row['Price'])
+                remain = row['Remaining Capacity']
+
+    return evnt, remain
+
+
+def check_id_event(id):
+    try:
+        with open("Event.csv", 'r') as events:
+            event_read = csv.DictReader(events)
+            for line in event_read:
+                if line['id'] == id:
+                    return 0
+                else:
+                    return 1
+
+    except:
+        return 1
 
 
 class Event:
@@ -62,34 +93,3 @@ class Event:
                 'Price': self.price,
 
             })
-
-
-def find_event(id):
-    """
-    this function find event from file of events.
-    :param id: id of event that want to find
-    :return: object of event and remaining capacity.
-    """
-    with open("Event.csv", 'r') as events:
-        event_read = csv.DictReader(events)
-        for row in event_read:
-            if row['id'] == id:
-                evnt = Event(id, row['Name'], row['Date'], row['Place'], row['Total Capacity'], row['Price'])
-                remain = row['Remaining Capacity']
-
-    return evnt, remain
-
-
-def check_id_event(id):
-    try:
-        with open("Event.csv", 'r') as events:
-            event_read = csv.DictReader(events)
-            for line in event_read:
-                if line['id'] == id:
-                    return 0
-                else:
-                    return 1
-
-    except:
-        return 1
-

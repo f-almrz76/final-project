@@ -9,3 +9,7 @@
 2021-05-14 10:30:10 - INFO - Event with ID:1 with numbers:1 bought.
 2021-05-14 10:37:43 - INFO - Event with ID:2 with numbers:1 bought.
 2021-05-14 10:43:40 - INFO - Event with ID:1 with numbers:1 bought.
+2021-05-21 14:02:59 - INFO - admin with admin_name : arezo registers.
+2021-05-21 14:04:46 - INFO - ['3', 'Avengers', '31/1', 'cinema', '20', '2000'] is created.
+2021-05-21 14:06:52 - INFO - Event with ID:2 with numbers:2 bought.
+2021-05-21 14:07:25 - INFO - user with user_name : arezo registers.

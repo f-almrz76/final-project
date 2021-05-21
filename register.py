@@ -4,6 +4,7 @@ import csv
 from colorama import Fore
 import log
 from admin import Admin
+
 hash_pas = basehash.base36()
 
 
@@ -18,16 +19,18 @@ def register_user(user_name, password, path):
     member = User(user_name, password_hash)
     member.add_file(path)
 
-def register_admin(admin_name,password,path):
+
+def register_admin(admin_name, password, path):
     """
       this function register user and save to file.
-      :param user_name: user name of user.
+      :param admin_name: user name of user.
       :param password: password of user.
       :param path: address of file.
       """
     password_hash = hash_pas.hash(password)
     member = Admin(admin_name, password_hash)
     member.add_file(path)
+
 
 def check_user(name, path):
     """
@@ -43,7 +46,7 @@ def check_user(name, path):
                 if row['user name'] == name:
                     return 0
             else:
-                    return 1
+                return 1
 
     except:
         return 1
@@ -82,13 +85,12 @@ def check(path):
                         if password == unhash_pass:
                             print(f"welcome {user_name}")
                             return check_info, user_name, password
-                            break
+
                     else:
                         print(Fore.RED + "You can try 1 hour later.")
                         log.warning_logger.error(f"{user_name} enters 3 times wrong password")
                         check_info = 0
                         return check_info, user_name, password
-                        break
 
         else:
             print(Fore.RED + "user name doesn't exist")
@@ -96,9 +98,3 @@ def check(path):
             return check_info, user_name, password
 
 
-#d = enter_user()
-"""
-ch = check_user('fateme', 'admin.csv')
-print(ch)
-if ch or ch == None:
-    print(ch)"""
